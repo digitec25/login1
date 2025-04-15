@@ -20,7 +20,7 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -55,7 +55,7 @@ body {
 }
 
 .logo {
-  width: 70px; /* Ajusta el tamaño según lo necesites */
+  width: 70px;
   height: auto;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -78,6 +78,11 @@ body {
   transform: scale(1.05);
 }
 
+.nav-link:focus {
+  outline: 2px dashed var(--secondary-color);
+  outline-offset: 4px;
+}
+
 /* Main Content */
 .content {
   flex: 1;
@@ -87,7 +92,9 @@ body {
   background: url('../img/banner.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
-  padding: var(--header-height) 0 var(--footer-height);
+  margin-top: var(--header-height);
+  margin-bottom: var(--footer-height);
+  padding: 1rem;
 }
 
 .content::before {
@@ -183,29 +190,28 @@ body {
 }
 
 .google-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .google-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255, 241, 187, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 241, 187, 0.3);
 }
 
 .google-btn img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
-
 
 .divider {
   display: flex;
@@ -226,7 +232,7 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.inicio-text  {
+.inicio-text {
   text-align: center;
   margin-top: 1rem;
   color: var(--text-color);
@@ -259,20 +265,47 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .header {
-      flex-direction: column;
-      padding: 0.5rem;
-      height: auto;
+    flex-direction: column;
+    padding: 0.5rem;
+    height: auto;
   }
 
   .nav-links {
-      margin-top: 0.5rem;
+    margin-top: 0.5rem;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .login-box {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
 
   .login-title {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1rem;
+  }
+
+  .form-group input {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .login-btn, .google-btn {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .login-title {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
